@@ -10,6 +10,7 @@ router.post("/animalitos", (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
+
 //1. Trae los datos de los animales con edad mayor a 2 de la base de datos
 router.get("/animalitos",(req,res) => {
 animalSchema.find({edad:{$gt:2}})
@@ -24,13 +25,12 @@ animalSchema.find()
      .catch((error) => res.json({message: error}));
 });
 
+//3. Trae los animales de la bse de datos del tipo oveja
 router.get("/animalitos/ovejas",(req,res) => {
 animalSchema.find({tipo:{$eq:"Oveja"}})
      .then((data) => res.json(data))
      .catch((error) => res.json({message: error}));
 });
-
-
 
 //Consultar un animal por su id
 router.get("/animalitos/:id", (req, res) => {
